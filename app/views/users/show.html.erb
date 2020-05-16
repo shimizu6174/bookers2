@@ -1,0 +1,19 @@
+<h3>User info</h3>
+
+<%= attachment_image_tag @user, :profile_image, size: "100x100",fallback: "no_image.jpg"%>
+
+<table class="table">
+		<tr>
+			<th>name</th>
+			<th><%= @user.name %></th>
+		</tr>
+
+		<tr>
+			<th>introduction</th>
+			<td><%= @user.introduction %></td>
+		</tr>
+</table>
+<%= button_to edit_user_path, method: :get, class:"white-btn btn btn-primasry" do%>
+	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+<%end%>
+
