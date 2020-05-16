@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+.blue-btn {
+	color: white;
+	background-color:#3399FF;
+	margin: 10px 0;
+}
+.green-btn {
+	color: white;
+	background-color: #33CC33;
+	margin: 10px 0;
+}
+.error-m {
+	color: red;
+}
+.page-container {
+	margin-left: 150px;
+}
+.form-set {
+	margin: 10px 0;
+}
+.bold {
+	font-weight: bold;
+}
+
+// top view
+.top-container {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+.top-text {
+	text-align: left;
+}
