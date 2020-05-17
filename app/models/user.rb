@@ -6,13 +6,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
+  validates_uniqueness_of :email
+
   has_many :books, dependent: :destroy
-
-  def email_required?
-  	false
-  end
-
-  def email_changed?
-  	false
-  end
 end

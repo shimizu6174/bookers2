@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/about'
+  get 'users/info'
 	devise_for :users
   resources :books, only: [:new, :create, :index, :show]
   resources :users, only: [:show, :edit, :update]
