@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bookers2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Bookers2</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <div class="header" id="header">
+    <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
+      <div class="container relative">
+        <div class="navbar-header">
+          <h4 class="navbar-logo" >
+            Bookers
+          </h4>
+
+        </div>
+        <div id="slidemenu">
+          <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+            <% if user_signed_in? %>
+            <li class="">
+              <%= link_to 'Home'%>
+            </li>
+            <li class="">
+              <%= link_to 'Users'%>
+            </li>
+            <li class="">
+              <%= link_to 'Books'%>
+            </li>
+            <li class="">
+              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            </li>
+            <% else %>
+            <li class="">
+              <%= link_to 'Home',root_path%>
+            </li>
+            <li class="">
+              <%= link_to 'About', home_about_path%>
+            </li>
+            <li class="">
+              <%= link_to 'sign up', new_user_registration_path%>
+            </li>
+            <li class="">
+              <%= link_to "login", new_user_session_path%>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <%= yield %>
+</body>
 </html>

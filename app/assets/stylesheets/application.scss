@@ -17,7 +17,13 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+// header
+#header {
+	background-color: black;
+	color:white;
+}
 
+// common
 .blue-btn {
 	color: white;
 	background-color:#3399FF;
