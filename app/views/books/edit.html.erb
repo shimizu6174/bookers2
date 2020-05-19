@@ -1,23 +1,16 @@
-<div class="page-container">
+
+<div class="center-container">
 	<h2>Editing Book</h2>
+	<%= render "devise/shared/error_messages", resource: @book %>
 
 	<%= form_for(@book) do |f| %>
-
-	<% if flash[:error].present? %>
-	<ul class="errors">
-		<h5 class="error-count"><%= flash[:error].length %>errors</h5>
-		<% flash[:error].each do |e| %>
-		<li><span class="error-text"><%= e %></span></li>
-		<% end %>
-	</ul>
-	<% end %>
 
 	<h5>title</h5>
 	<%= f.text_field :title %>
 	<h5>Body</h5>
 	<%= f.text_area :body %>
 	<p></p>
-	<%= f.submit 'Update Book' %>
+	<%= f.submit 'Update Book', class:"blue-btn btn btn-primasry" %>
 
 	<p class="edit-text">
 		<span>

@@ -1,4 +1,14 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
+	before_action :confirm_user, only: [:edit,:update]
+
+	def confirm_user
+		user = User.find(params[:id])
+
+		unless user == current_user
+			redirect_to user_path(current_user)
+		end
+	end
 
 	def index
 		@user = User.find(current_user.id)
@@ -9,7 +19,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@book = Book.new
-		@user_book = Book.where(user_id: current_user.id)
+		@user_book = Book.where(user_id: @user.id)
 	end
 
 	def edit
@@ -18,8 +28,12 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update(user_params)
-		redirect_to user_path(@user.id)
+		if @user.update(user_params)
+			flash[:notice] = "Book was successfully updated."
+			redirect_to user_path(@user.id)
+		else
+			render("users/edit")
+		end
 	end
 	private 
 	def user_params

@@ -17,12 +17,12 @@
 	</table>
 
 	<% if current_user.id == @user.id %>
-	<%= button_to edit_user_path(current_user), method: :get, class:"white-btn btn btn-primasry" do%>
+	<%= link_to edit_user_path(current_user), method: :get, class:"white-btn btn btn-primasry" do%>
 	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 	<%end%>
 
 	<% else %>
-	<%= button_to user_path(current_user.id), method: :get, class:"white-btn btn btn-primasry" do%>
+	<%= link_to user_path(current_user.id), method: :get, class:"white-btn btn btn-primasry" do%>
 	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 	<%end%>
 	<%end%>

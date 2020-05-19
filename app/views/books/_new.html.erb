@@ -7,13 +7,13 @@
 	<%= form_for(@book) do |f| %>
 
 	<h5>Title</h5>
-	<%= f.text_field :title %>
+	<%= f.text_field :title  ,class:"side-form"%>
 
 	<h5>Opinion</h5>
-	<%= f.text_area :body %>
+	<%= f.text_area :body ,class:"side-form" %>
 
 	<p></p>
-	<%= f.submit 'Create Book' ,class:"blue-btn btn btn-primasry" %>
+	<%= f.submit 'Create Book' ,class:"blue-btn btn btn-primasry side-form" %>
 
 	<% end %>
 </div>

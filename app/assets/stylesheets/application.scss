@@ -41,10 +41,13 @@
 .white-btn {
 	margin: 10px 0;
 	border: 1px solid black;
-	width: 50%;
+	width: 100%;
 }
 .error-m {
 	color: red;
+}
+.success-m {
+	color: green;
 }
 .page-container {
 	margin-left: 150px;
@@ -55,13 +58,18 @@
 .bold {
 	font-weight: bold;
 }
-
-// top view
-.top-container {
+.center-container {
 	width: 100%;
 	display: inline-block;
 	text-align: center;
 }
+
+// top
 .top-text {
 	text-align: left;
+}
+
+// _new book
+.side-form {
+	width: 100%;
 }
