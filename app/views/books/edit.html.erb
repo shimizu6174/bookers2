@@ -1,2 +1,33 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="page-container">
+	<h2>Editing Book</h2>
+
+	<%= form_for(@book) do |f| %>
+
+	<% if flash[:error].present? %>
+	<ul class="errors">
+		<h5 class="error-count"><%= flash[:error].length %>errors</h5>
+		<% flash[:error].each do |e| %>
+		<li><span class="error-text"><%= e %></span></li>
+		<% end %>
+	</ul>
+	<% end %>
+
+	<h5>title</h5>
+	<%= f.text_field :title %>
+	<h5>Body</h5>
+	<%= f.text_area :body %>
+	<p></p>
+	<%= f.submit 'Update Book' %>
+
+	<p class="edit-text">
+		<span>
+			<%= link_to "Show", book_path(@book) %>
+		</span>
+
+		| <span>
+			<%= link_to "Back", books_path %>
+		</span>
+	</p>
+	<% end %>
+</div>
+

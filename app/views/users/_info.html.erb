@@ -1,8 +1,10 @@
-<h3>User info</h3>
 
-<%= attachment_image_tag @user, :profile_image, size: "100x100",fallback: "no_image.jpg"%>
+<div class="side-container">
+	<h3>User info</h3>
 
-<table class="table">
+	<%= attachment_image_tag @user, :profile_image, size: "100x100",fallback: "no_image.jpg"%>
+
+	<table class="table">
 		<tr>
 			<th>name</th>
 			<th><%= @user.name %></th>
@@ -12,7 +14,16 @@
 			<th>introduction</th>
 			<td><%= @user.introduction %></td>
 		</tr>
-</table>
-<%= button_to edit_user_path, method: :get, class:"white-btn btn btn-primasry" do%>
+	</table>
+
+	<% if current_user.id == @user.id %>
+	<%= button_to edit_user_path(current_user), method: :get, class:"white-btn btn btn-primasry" do%>
 	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-<%end%>
+	<%end%>
+
+	<% else %>
+	<%= button_to user_path(current_user.id), method: :get, class:"white-btn btn btn-primasry" do%>
+	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+	<%end%>
+	<%end%>
+</div>
