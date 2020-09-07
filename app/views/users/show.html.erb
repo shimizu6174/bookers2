@@ -23,13 +23,27 @@
 							<%end%>
 						<td><%= link_to user_book.title, book_path(user_book.id) %></td>
 						<td><%= user_book.body %></td>
+						<td><%= user_book.favorites.count %> コメント</td>
+						<td>
+							<% if user_book.favorited_by?(current_user) %>
+							<%= link_to book_favorites_path(user_book), method: :delete do %>
+							<span class="glyphicon glyphicon-heart" aria-hidden="true"　style="color: red;"></span>
+							<% end %>
+							<%= user_book.favorites.count %> いいね
+							<% else %>
+							<%= link_to book_favorites_path(user_book), method: :post do %>
+							<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+							<% end %>
+							<%= user_book.favorites.count %> いいね
+							<% end %>
+						</td>
 					</tr>
 					<%end%>
 				</body>
 			</table>
-		</div> 
+		</div>
 
 	</div>
-</div>                
+</div>
 
 

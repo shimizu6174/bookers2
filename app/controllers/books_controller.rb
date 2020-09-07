@@ -28,6 +28,7 @@ class BooksController < ApplicationController
 		@book = Book.new
 		@book_detail = Book.find(params[:id])
 		@user = User.find_by(id: @book_detail.user_id)
+		@book_comment = BookComment.new
 
 		if current_user == @user
 			@path = edit_book_path
@@ -48,7 +49,7 @@ class BooksController < ApplicationController
 		@book.user_id = current_user.id
 		if @book.save
 			flash[:notice] = "Book was successfully created"
-			redirect_to book_path(current_user)
+			redirect_to book_path(@book)
 		else
 			render("books/index")
 		end
